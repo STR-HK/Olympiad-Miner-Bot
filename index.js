@@ -9,8 +9,22 @@ client.on('ready', () => {
 
 client.on('message', msg => {
   if (msg.content === prefix + 'enroll' || msg.content === prefix + '등록') {
-    
-    const EnrollEmbed = new Discord.MessageEmbed()
+
+    let fs = require('fs');
+    let path = './userdata/' + msg.author.id + '.json';
+
+    if (fs.existsSync(path)){
+      const ErrorEnrollEmbed = new Discord.MessageEmbed()
+	    .setColor('#FFCD4D')
+	    .setTitle(':warning: Ethereum Miningpoolhub 아이디 등록 대기 & 중복 확인됨')
+	    //.setAuthor(client.user.tag, client.user.displayAvatarURL({ size: 1024, format: 'png', dynamic: true }))
+	    .setDescription('이미 등록이 되어 있으세요. 재등록하시면 기존 것이 수정돼요.\n중단을 원하시면 시간초과 메시지가 뜰 때까지 응답하지 말아주세요.\n본인 Ethereum을 수령하실 아이디를 입력해주세요 : ')
+	    .setTimestamp()
+	    .setFooter(msg.author.tag, msg.author.displayAvatarURL({ size: 1024, format: 'png', dynamic: true }));
+
+    msg.channel.send(ErrorEnrollEmbed);
+    } else {
+      const EnrollEmbed = new Discord.MessageEmbed()
 	    .setColor('#9669D4')
 	    .setTitle(':id: Ethereum Miningpoolhub 아이디 등록 대기')
 	    //.setAuthor(client.user.tag, client.user.displayAvatarURL({ size: 1024, format: 'png', dynamic: true }))
@@ -19,6 +33,7 @@ client.on('message', msg => {
 	    .setFooter(msg.author.tag, msg.author.displayAvatarURL({ size: 1024, format: 'png', dynamic: true }));
 
     msg.channel.send(EnrollEmbed);
+    }
 
     const filter = m => m.author.id === msg.author.id;
 
@@ -55,21 +70,49 @@ client.on('message', msg => {
       .setTimestamp()
 	    .setFooter(msg.author.tag, msg.author.displayAvatarURL({ size: 1024, format: 'png', dynamic: true }));
       msg.channel.send(MinerCheckedEmbed);
+
+      let rights = 0;
     
       let fs = require('fs');
-      let options = { id : id, miner : miner};
+      let options = { id : id, miner : miner, rights : rights};
       let data = JSON.stringify(options);
 
       let path = './userdata/' + msg.author.id + '.json';
 
       try {
         if (fs.existsSync(path)){
-          fs.unlinkSync(path)
+          let rawdata = fs.readFileSync(path);
+          let parsedata = JSON.parse(rawdata);
+          parsedata.id = id;
+          parsedata.miner = miner;
+
+          let datachanged = JSON.stringify(parsedata);
+          fs.writeFile(path, datachanged, function(err) {
+            if (err) {
+              const SaveErr3Embed = new Discord.MessageEmbed()
+                .setColor('#31373D')
+                .setTitle(':pirate_flag: 데이터 문제 발생')
+                .setDescription('데이터 저장 중에 예기치 못한 문제가 발생했어요.\n개발자에게 문의해주세요.')
+                .setTimestamp()
+                .setFooter(msg.author.tag, msg.author.displayAvatarURL({ size: 1024, format: 'png', dynamic: true }));
+              msg.channel.send(SaveErr3Embed);
+              return;
+            }
+          })
+
+          const CoverSavedEmbed = new Discord.MessageEmbed()
+            .setColor('#D99E82')
+            .setTitle(':notebook_with_decorative_cover: 데이터 수정 완료')
+            .setDescription('아이디와 마이너 이름이 정상적으로 수정 되었어요.\n계속 서비스를 이용하시면 돼요.')
+            .setTimestamp()
+            .setFooter(msg.author.tag, msg.author.displayAvatarURL({ size: 1024, format: 'png', dynamic: true }));
+          msg.channel.send(CoverSavedEmbed);
+          return;
       }
       } catch(err) {
         const SaveErr2Embed = new Discord.MessageEmbed()
         .setColor('#31373D')
-        .setTitle(':pirate_flag:  데이터 문제 발생')
+        .setTitle(':pirate_flag: 데이터 문제 발생')
         .setDescription('데이터 저장 중에 예기치 못한 문제가 발생했어요.\n개발자에게 문의해주세요.')
         .setTimestamp()
         .setFooter(msg.author.tag, msg.author.displayAvatarURL({ size: 1024, format: 'png', dynamic: true }));
@@ -81,7 +124,7 @@ client.on('message', msg => {
        if (err) {
         const SaveErrEmbed = new Discord.MessageEmbed()
         .setColor('#31373D')
-        .setTitle(':pirate_flag:  데이터 문제 발생')
+        .setTitle(':pirate_flag: 데이터 문제 발생')
         .setDescription('데이터 저장 중에 예기치 못한 문제가 발생했어요.\n개발자에게 문의해주세요.')
         .setTimestamp()
         .setFooter(msg.author.tag, msg.author.displayAvatarURL({ size: 1024, format: 'png', dynamic: true }));
