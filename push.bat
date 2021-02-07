@@ -1,7 +1,7 @@
 @echo off
 
 git add -A
-git commit -m commit
+git commit -m "^-^"
 git push -u origin master
 
 echo Done!
