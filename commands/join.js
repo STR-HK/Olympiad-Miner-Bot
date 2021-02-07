@@ -4,17 +4,16 @@ const client = new Discord.Client();
 let fs = require('fs');
 
 module.exports = {
-    name: 'enroll',
-    description: 'enroll',
-    aliases: ['enroll', '등록'],
+    name: 'join',
+    description: 'join',
+    aliases: ['join', '가입'],
         execute(msg, args) {
             let path = './userdata/' + msg.author.id + '.json';
 
             if (fs.existsSync(path)) {
                 const ErrorEnrollEmbed = new Discord.MessageEmbed()
                     .setColor('#FFCD4D')
-                    .setTitle(':warning: Ethereum Miningpoolhub 아이디 등록 대기 & 중복 확인됨')
-                    //.setAuthor(client.user.tag, client.user.displayAvatarURL({ size: 1024, format: 'png', dynamic: true }))
+                    .setTitle(':warning:  Ethereum Miningpoolhub 아이디 등록 대기 & 중복 확인됨')
                     .setDescription('이미 등록이 되어 있으세요. 재등록하시면 기존 것이 수정돼요.\n중단을 원하시면 시간초과 메시지가 뜰 때까지 응답하지 말아주세요.\n본인 Ethereum을 수령하실 아이디를 입력해주세요 : ')
                     .setTimestamp()
                     .setFooter(msg.author.tag, msg.author.displayAvatarURL({
@@ -27,8 +26,7 @@ module.exports = {
             } else {
                 const EnrollEmbed = new Discord.MessageEmbed()
                     .setColor('#9669D4')
-                    .setTitle(':id: Ethereum Miningpoolhub 아이디 등록 대기')
-                    //.setAuthor(client.user.tag, client.user.displayAvatarURL({ size: 1024, format: 'png', dynamic: true }))
+                    .setTitle(':id:  Ethereum Miningpoolhub 아이디 등록 대기')
                     .setDescription('Ethereum을 수령하실 아이디를 입력해주세요 : ')
                     .setTimestamp()
                     .setFooter(msg.author.tag, msg.author.displayAvatarURL({
@@ -52,7 +50,7 @@ module.exports = {
         
                     const IdCheckedEmbed = new Discord.MessageEmbed()
                         .setColor('#226699')
-                        .setTitle(':ballot_box_with_check: 아이디 입력 완료')
+                        .setTitle(':ballot_box_with_check:  아이디 입력 완료')
                         .setDescription('아이디가 정상적으로 입력되었어요 : `' + id + '`')
                         .setTimestamp()
                         .setFooter(msg.author.tag, msg.author.displayAvatarURL({
@@ -64,7 +62,7 @@ module.exports = {
         
                     const GiveMinerNameEmbed = new Discord.MessageEmbed()
                         .setColor('#F5900C')
-                        .setTitle(':pick: 마이너 이름 입력 대기')
+                        .setTitle(':pick:  마이너 이름 입력 대기')
                         .setDescription('Ethereum을 수령하실 마이너 이름을 입력해주세요 : ')
                         .setTimestamp()
                         .setFooter(msg.author.tag, msg.author.displayAvatarURL({
@@ -86,7 +84,7 @@ module.exports = {
         
                             const MinerCheckedEmbed = new Discord.MessageEmbed()
                                 .setColor('#77B255')
-                                .setTitle(':white_check_mark: 마이너 이름 입력 완료')
+                                .setTitle(':white_check_mark:  마이너 이름 입력 완료')
                                 .setDescription('마이너 이름이 정상적으로 입력되었어요 : `' + miner + '`')
                                 .setTimestamp()
                                 .setFooter(msg.author.tag, msg.author.displayAvatarURL({
@@ -115,7 +113,7 @@ module.exports = {
                                         if (err) {
                                             const SaveErr3Embed = new Discord.MessageEmbed()
                                                 .setColor('#31373D')
-                                                .setTitle(':pirate_flag: 데이터 문제 발생')
+                                                .setTitle(':pirate_flag:  데이터 문제 발생')
                                                 .setDescription('데이터 저장 중에 예기치 못한 문제가 발생했어요.\n개발자에게 문의해주세요.')
                                                 .setTimestamp()
                                                 .setFooter(msg.author.tag, msg.author.displayAvatarURL({
@@ -130,7 +128,7 @@ module.exports = {
         
                                     const CoverSavedEmbed = new Discord.MessageEmbed()
                                         .setColor('#D99E82')
-                                        .setTitle(':notebook_with_decorative_cover: 데이터 수정 완료')
+                                        .setTitle(':notebook_with_decorative_cover:  데이터 수정 완료')
                                         .setDescription('아이디와 마이너 이름이 정상적으로 수정 되었어요.\n계속 서비스를 이용하시면 돼요.')
                                         .setTimestamp()
                                         .setFooter(msg.author.tag, msg.author.displayAvatarURL({
@@ -144,7 +142,7 @@ module.exports = {
                             } catch (err) {
                                 const SaveErr2Embed = new Discord.MessageEmbed()
                                     .setColor('#31373D')
-                                    .setTitle(':pirate_flag: 데이터 문제 발생')
+                                    .setTitle(':pirate_flag:  데이터 문제 발생')
                                     .setDescription('데이터 저장 중에 예기치 못한 문제가 발생했어요.\n개발자에게 문의해주세요.')
                                     .setTimestamp()
                                     .setFooter(msg.author.tag, msg.author.displayAvatarURL({
@@ -160,7 +158,7 @@ module.exports = {
                                 if (err) {
                                     const SaveErrEmbed = new Discord.MessageEmbed()
                                         .setColor('#31373D')
-                                        .setTitle(':pirate_flag: 데이터 문제 발생')
+                                        .setTitle(':pirate_flag:  데이터 문제 발생')
                                         .setDescription('데이터 저장 중에 예기치 못한 문제가 발생했어요.\n개발자에게 문의해주세요.')
                                         .setTimestamp()
                                         .setFooter(msg.author.tag, msg.author.displayAvatarURL({
@@ -173,7 +171,7 @@ module.exports = {
                                 }
                                 const SavedEmbed = new Discord.MessageEmbed()
                                     .setColor('#E1E8ED')
-                                    .setTitle(':checkered_flag: 데이터 저장 완료')
+                                    .setTitle(':checkered_flag:  데이터 저장 완료')
                                     .setDescription('아이디와 마이너 이름이 정상적으로 저장되었어요.\n이제 서비스를 이용하실 수 있어요.')
                                     .setTimestamp()
                                     .setFooter(msg.author.tag, msg.author.displayAvatarURL({
@@ -189,7 +187,7 @@ module.exports = {
                         .catch(async(collected) => {
                             const MinerTimeOutEmbed = new Discord.MessageEmbed()
                                 .setColor('#31373D')
-                                .setTitle(':heavy_multiplication_x: 마이너 이름 입력 시간 초과')
+                                .setTitle(':heavy_multiplication_x:  마이너 이름 입력 시간 초과')
                                 .setDescription('시간이 초과되어 마이너 이름의 입력이 취소되었어요. 다시 시도해주세요.')
                                 .setTimestamp()
                                 .setFooter(msg.author.tag, msg.author.displayAvatarURL({
@@ -204,7 +202,7 @@ module.exports = {
                 .catch(async(collected) => {
                     const IdTimeOutEmbed = new Discord.MessageEmbed()
                         .setColor('#DF2E45')
-                        .setTitle(':x: 아이디 입력 시간 초과')
+                        .setTitle(':x:  아이디 입력 시간 초과')
                         .setDescription('시간이 초과되어 아이디 입력이 취소되었어요. 다시 시도해주세요.')
                         .setTimestamp()
                         .setFooter(msg.author.tag, msg.author.displayAvatarURL({
