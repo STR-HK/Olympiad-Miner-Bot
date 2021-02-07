@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
+let fs = require('fs');
 
 let prefix = ";"
 
@@ -10,7 +11,6 @@ client.on('ready', () => {
 client.on('message', msg => {
   if (msg.content === prefix + 'enroll' || msg.content === prefix + '등록') {
 
-    let fs = require('fs');
     let path = './userdata/' + msg.author.id + '.json';
 
     if (fs.existsSync(path)){
@@ -72,8 +72,6 @@ client.on('message', msg => {
       msg.channel.send(MinerCheckedEmbed);
 
       let rights = 0;
-    
-      let fs = require('fs');
       let options = { id : id, miner : miner, rights : rights};
       let data = JSON.stringify(options);
 
@@ -171,8 +169,6 @@ client.on('message', msg => {
   }
 
 });
-
-const fs = require('fs')
 
 fs.readFile('./token.token', 'utf-8', (err, data) => {
   if (err) {
