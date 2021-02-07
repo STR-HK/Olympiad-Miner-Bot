@@ -1,0 +1,11 @@
+{
+  "name": "olympiad-miner-bot",
+  "version": "1.0.0",
+  "description": "A discord bot that mines Ethereum for the person who solves the quiz.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "STR_HK, RedteaDeveloper",
+  "license": "GPL-3.0-or-later"
+}
