@@ -6,7 +6,7 @@ let fs = require('fs');
 module.exports = {
     name: 'enroll',
     description: 'enroll',
-    aliases: ['enroll'],
+    aliases: ['enroll', '등록'],
         execute(msg, args) {
             let path = './userdata/' + msg.author.id + '.json';
 
