@@ -1,7 +1,7 @@
 @echo off
 
 git add -A
-git it commit -m '^q^'
+git commit -m 'commit'
 git push -u origin master
 
 echo Done!
