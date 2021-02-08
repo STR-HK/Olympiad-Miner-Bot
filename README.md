@@ -1,5 +1,5 @@
 <div align="center">
-<img src="https://raw.githubusercontent.com/STR-HK/Olympiad-Miner-Bot/master/assets/Olympiad-Miner-Bot.png" alt="Olympiad-Miner-Bot" width="300">
+<img src="https://raw.githubusercontent.com/STR-HK/Olympiad-Miner-Bot/master/assets/Olympiad-Miner-Bot-512x.png" alt="Olympiad-Miner-Bot" width="300">
 </div>
 
 <div align="center">
