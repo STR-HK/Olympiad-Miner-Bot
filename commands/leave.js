@@ -26,7 +26,7 @@ module.exports = {
 			const LeaveEmbed = new Discord.MessageEmbed()
 				.setColor('#BE1931')
 				.setTitle(':no_entry:  탈퇴 불가')
-				.setDescription('가입하신 적이 없어요. 탈퇴가 불가능해요.')
+				.setDescription('가입하시지 않으셔서 탈퇴가 불가능해요.')
 				.setTimestamp()
 				.setFooter(msg.author.tag, msg.author.displayAvatarURL({
 					size: 1024,
