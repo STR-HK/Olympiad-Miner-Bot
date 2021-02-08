@@ -14,7 +14,7 @@ module.exports = {
 			const LeaveEmbed = new Discord.MessageEmbed()
 				.setColor('#BE1931')
 				.setTitle(':no_entry:  탈퇴 메뉴')
-				.setDescription('정말로 Olympiad Miner 서비스를 탈퇴하시겠어요?\n탈퇴 후에 재가입은 가능하지만 기존 데이터는 소실돼요.\n탈퇴하시려면 `탈퇴`, 취소하시려면 ``취소``라고 입력해주세요.\n+ 시간 초과 메시지가 뜰 때까지 응답하지 않으셔도 돼요.')
+				.setDescription('정말로 Olympiad Miner 서비스를 탈퇴하시겠어요?\n탈퇴 후에 재가입은 가능하지만 기존 데이터는 소실돼요.\n탈퇴하시려면 `탈퇴`, 취소하시려면 ``취소``라고 입력해주세요.\n+ 시간 초과 메시지가 뜰 때까지 응답하지 않으시면 탈퇴가 취소돼요.')
 				.setTimestamp()
 				.setFooter(msg.author.tag, msg.author.displayAvatarURL({
 					size: 1024,
