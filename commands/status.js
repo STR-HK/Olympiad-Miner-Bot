@@ -15,8 +15,7 @@ module.exports = {
             fs.readFile(path, 'utf-8', (err, data) => {
 
                 let parse = JSON.parse(data);
-                console.log(parse);
-
+                
                 if (err) {
                     const SaveErr3Embed = new Discord.MessageEmbed()
                     .setColor('#31373D')
