@@ -15,9 +15,9 @@ module.exports = {
             fs.readFile(path, 'utf-8', (err, data) => {
 
                 let parse = JSON.parse(data);
-                
+
                 if (err) {
-                    const SaveErr3Embed = new Discord.MessageEmbed()
+                    const LoadErrEmbed = new Discord.MessageEmbed()
                     .setColor('#31373D')
                     .setTitle(':pirate_flag:  데이터 문제 발생')
                     .setDescription('데이터 로드 중에 예기치 못한 문제가 발생했어요.\n개발자에게 문의해주세요.')
@@ -27,9 +27,11 @@ module.exports = {
                       format: 'png',
                       dynamic: true
                     }));
-                  msg.channel.send(SaveErr3Embed);
+                  msg.channel.send(LoadErrEmbed);
+                  return;
+
                 } else {
-                    const RightsEmbed = new Discord.MessageEmbed()
+                    const StatusEmbed = new Discord.MessageEmbed()
                     .setColor('#CCD6DD')
                     .setTitle(':page_with_curl:  가입 현황')
                     .addField('ID', parse.id, true)
@@ -41,13 +43,14 @@ module.exports = {
                         dynamic: true
                     }));
         
-                    msg.channel.send(RightsEmbed);
+                    msg.channel.send(StatusEmbed);
+                    return;
                 }
 
             })
 
         } else {
-            const RightsErrorEmbed = new Discord.MessageEmbed()
+            const StatusErrorEmbed = new Discord.MessageEmbed()
             .setColor('#BE1931')
             .setTitle(':exclamation:  가입 현황')
             .setDescription('가입하지 않으셨어요! `가입` 명령어를 통해 가입을 진행해주세요!')
@@ -58,7 +61,7 @@ module.exports = {
                 dynamic: true
             }));
 
-        msg.channel.send(RightsErrorEmbed);
+        msg.channel.send(StatusErrorEmbed);
         return;
         }
 

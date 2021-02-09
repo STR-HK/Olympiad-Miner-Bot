@@ -15,6 +15,7 @@ for (const file of commandFiles) {
 
 client.on('ready', () => {
 	console.log(`Logged in as ${client.user.tag}!`);
+	client.user.setActivity("Ethereum", { type: "WATCHING"})
 });
 
 client.on('message', async msg => {
@@ -34,6 +35,8 @@ client.on('message', async msg => {
 });
 
 global.client = client
+
+
 
 fs.readFile('./token.token', 'utf-8', (err, data) => {
 	if (err) {

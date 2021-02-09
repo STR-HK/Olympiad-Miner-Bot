@@ -129,7 +129,7 @@ module.exports = {
                 const CoverSavedEmbed = new Discord.MessageEmbed()
                   .setColor('#D99E82')
                   .setTitle(':notebook_with_decorative_cover:  데이터 수정 완료')
-                  .setDescription('아이디와 마이너 이름이 정상적으로 수정 되었어요.\n계속 서비스를 이용하시면 돼요.')
+                  .setDescription('아이디와 마이너 이름이 정상적으로 수정되었어요.\n계속 서비스를 이용하시면 돼요.')
                   .setTimestamp()
                   .setFooter(msg.author.tag, msg.author.displayAvatarURL({
                     size: 1024,
