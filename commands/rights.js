@@ -6,7 +6,7 @@ let fs = require('fs');
 module.exports = {
 	name: 'rights',
 	description: 'rights',
-	aliases: ['rights', '채굴권'],
+	aliases: ['rights', '채굴권','cornfrnjs'],
 	execute(msg, args) {
 		let path = './userdata/' + msg.author.id + '.json';
 

@@ -6,7 +6,7 @@ let fs = require('fs');
 module.exports = {
 	name: 'leave',
 	description: 'leave',
-	aliases: ['leave', '탈퇴'],
+	aliases: ['leave', '탈퇴','xkfxhl'],
 	execute(msg, args) {
 		let path = './userdata/' + msg.author.id + '.json';
 

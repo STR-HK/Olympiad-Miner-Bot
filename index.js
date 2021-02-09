@@ -34,9 +34,7 @@ client.on('message', async msg => {
 	}
 });
 
-global.client = client
-
-
+global.Client = client
 
 fs.readFile('./token.token', 'utf-8', (err, data) => {
 	if (err) {

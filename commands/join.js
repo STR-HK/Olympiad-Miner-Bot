@@ -6,7 +6,7 @@ let fs = require('fs');
 module.exports = {
   name: 'join',
   description: 'join',
-  aliases: ['join', '가입'],
+  aliases: ['join', '가입','rkdlq'],
   execute(msg, args) {
     let path = './userdata/' + msg.author.id + '.json';
 
