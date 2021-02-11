@@ -23,6 +23,8 @@ client.on('message', async msg => {
 	const command = args.shift().toLowerCase();
 
 	if (!client.commands.has(command) && !client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(command))) return;
+	
+	if(msg.content.indexOf(prefix) !== 0) return;
 
 	const cmdExec = client.commands.get(command) || client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(command))
 
